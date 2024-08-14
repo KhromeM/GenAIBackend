@@ -2,8 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 const port = 8000;
 const isTestEnv = process.env.NODE_ENV === "test";
-// const redirectUrl = "https://www.trymeddy.com/chat;
-const redirectUrl = "http://localhost:5173/chat";
 
 export default {
 	port: isTestEnv ? port + 1 : port,
@@ -20,5 +18,4 @@ export default {
 	MEDPLUM_CLIENT_SECRET: process.env.MEDPLUM_CLIENT_SECRET,
 	GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
 	GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-	GOOGLE_REDIRECT_URI: redirectUrl,
 };

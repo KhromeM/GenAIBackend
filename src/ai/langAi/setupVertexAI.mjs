@@ -1,7 +1,6 @@
 import fs from "fs";
 import CONFIG from "../../config.mjs";
 import { VertexAI } from "@google-cloud/vertexai";
-import { getUserInfo } from "../../db/dbInfo.mjs";
 import { createFunctionCallingSystemPrompt } from "../prompts/functionCallingPrompt.mjs";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { GoogleAICacheManager } from "@google/generative-ai/server";
@@ -199,7 +198,7 @@ export async function getStructuredVertexResponse(
 	if (chatHistory[0].source != "user") {
 		chatHistory.shift();
 	}
-	const data = await getUserInfo(user.userid);
+	const data = "userdata"; //replace
 	const prompt = createFunctionCallingSystemPrompt(data);
 	const cleanedHistory = chatHistory.map((message) => ({
 		role: message.source === "llm" ? "model" : "user",

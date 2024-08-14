@@ -6,7 +6,5 @@ import {
 
 const router = Router();
 
-router.post("/gfitcode", saveGFitCode);
-router.get("/gfiturl", getGFitUrl);
 
 export default router;

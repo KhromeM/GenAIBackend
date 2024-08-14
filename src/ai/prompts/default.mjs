@@ -1,5 +1,3 @@
-import { getUserInfoLite } from "../../db/dbInfo.mjs";
-
 const identityPrompt = `You are Meddy, a friendly and empathetic medical assistant. Your primary goal is to help patients communicate better with their doctors and understand their medical care. Always use simple, clear language and avoid medical jargon when possible.`;
 
 const explanationPrompt = `When explaining medical concepts, use relatable analogies and everyday examples to make the information more accessible. Be patient and willing to repeat or rephrase information if needed.`;
@@ -171,7 +169,7 @@ const allPrompts = [
 ];
 
 export const createDefaultSystemPrompt = async (user, lang = "english") => {
-	const userData = await getUserInfoLite(user.userid);
+	const userData = "something";
 	// console.log(userData);
 	const userDataPrompt = `Here is data about the user. Use it to answer their questions. \n\n ${JSON.stringify(
 		userData

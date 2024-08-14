@@ -7,18 +7,12 @@ import CONFIG from "./config.mjs";
 import chatRoutes from "./server/routes/chatRoutes.mjs";
 import fileRoutes from "./server/routes/fileRoutes.mjs";
 import imageRoutes from "./server/routes/imageRoutes.mjs";
-import appointmentRoutes from "./server/routes/appointmentRoutes.mjs";
-import infoRoutes from "./server/routes/infoRoutes.mjs";
-import doctorRoutes from "./server/routes/doctorRoutes.mjs";
-import medplumRoutes from "./server/routes/medplumRoutes.mjs";
+import credentialsRoutes from "./server/routes/credentialsRoutes.mjs";
 import authMiddleware from "./server/middleware/authMiddleware.mjs";
 import loggerMiddleware from "./server/middleware/loggerMiddleware.mjs";
 import userMiddleware from "./server/middleware/userMiddleware.mjs";
 import errorHandler from "./server/middleware/errorHandler.mjs";
 import { setupErrorHandlers } from "./extra/errorHandlers.mjs";
-import credentialsRoutes from "./server/routes/credentialsRoutes.mjs";
-import medicalRecordRoutes from "./server/routes/medicalRecordRoutes.mjs";
-import gFitRoutes from "./server/routes/gfitRoutes.mjs";
 
 setupErrorHandlers();
 
@@ -37,14 +31,8 @@ app.use(userMiddleware);
 // API Routes:
 app.use("/api/chat", chatRoutes);
 app.use("/api/file", fileRoutes);
-app.use("/api/appointment", appointmentRoutes);
-app.use("/api/doctor", doctorRoutes);
-app.use("/api/info", infoRoutes);
-app.use("/api/medplum", medplumRoutes);
 app.use("/api/image", imageRoutes);
 app.use("/api/credentials", credentialsRoutes);
-app.use("/api/medical-record", medicalRecordRoutes);
-app.use("/api/gfit", gFitRoutes);
 
 app.use(errorHandler);
 

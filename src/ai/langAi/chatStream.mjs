@@ -18,7 +18,6 @@ import {
 	createSaveAppointmentPrompt,
 } from "../prompts/functionCallingPrompt.mjs";
 import { sampleData1 } from "../prompts/sampleData.mjs";
-import { getUserInfo } from "../../db/dbInfo.mjs";
 import fs from "fs";
 import path from "path";
 import { getContentType } from "../../utils/contentType.mjs";
@@ -68,9 +67,6 @@ export const getChatResponse = async (
 ) => {
 	if (chatHistory[0].source == "llm") chatHistory.shift(); // gemini doesnt like the first message to be from an llm
 	let data = sampleData1;
-	if (mode == 1) {
-		data = await getUserInfo(user.userid);
-	}
 
 	const chatStream = await chatStreamProvider(
 		chatHistory,
@@ -103,9 +99,6 @@ export const jsonChatResponse = async (
 ) => {
 	if (chatHistory[0].source == "llm") chatHistory.shift(); // gemini doesnt like the first message to be from an llm
 
-	if (mode == 1) {
-		data = await getUserInfo(user.userid);
-	}
 	const systemMessage = await getSystemMessage(user, data, mode);
 	let messages = [
 		new SystemMessage(systemMessage),

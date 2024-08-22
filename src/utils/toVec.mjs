@@ -4,7 +4,11 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import CONFIG from "../config.mjs";
 import { OpenAIEmbeddings } from "@langchain/openai";
 
-const MODEL_STRING = "text-embedding-3-large";
+// const MODEL_STRING = "text-embedding-3-large";
+// const EMBEDDING_SIZE = 3072
+const MODEL_STRING = "text-embedding-3-small";
+const EMBEDDING_SIZE = 1536;
+
 const model = new OpenAIEmbeddings();
 model.modelName = MODEL_STRING;
 model.apiKey = CONFIG.OPENAI_API_KEY;
